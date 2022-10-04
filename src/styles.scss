@@ -1,0 +1,32 @@
+*{
+    margin: 0;
+    padding: 0;
+}
+
+*,
+*::before,
+*::after {
+    box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+  overflow-x: hidden;
+}
+
+
+/* ::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: beige;
+}
+
+::-webkit-scrollbar-thumb {
+  background: rgb(118, 118, 116)
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: black;
+} */
