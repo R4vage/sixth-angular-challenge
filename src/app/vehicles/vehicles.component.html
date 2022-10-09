@@ -1,3 +1,9 @@
 <app-navbar></app-navbar>
-<p>vehicles works!</p>
+<section class="vehicle-list-container">
+  <app-vehicle-list [vehicleArray]="japaneseCars" header="Japanese Cars"></app-vehicle-list>
+  <app-vehicle-list [vehicleArray]="germanCars" header="German Cars"></app-vehicle-list>
+  <app-vehicle-list [vehicleArray]="americanCars" header="USA Cars"></app-vehicle-list>
+
+</section>
+
 <app-footer></app-footer>

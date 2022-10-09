@@ -1,3 +1,4 @@
+import { FormsModule } from '@angular/forms';
 import { RouterModule } from '@angular/router';
 import { RoutingModule } from './app-routing.module';
 import { VehiclesModule } from './vehicles/vehicles.module';

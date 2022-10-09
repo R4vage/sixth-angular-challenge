@@ -1,0 +1,6 @@
+<details class="category">
+    <summary class="category__title">{{header}}</summary>
+    <div class="vehicle-container">
+        <app-single-vehicle *ngFor="let vehicle of vehicleArray" [vehicle]="vehicle" class="app-vehicle"></app-single-vehicle >
+    </div>
+</details>

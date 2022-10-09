@@ -1,0 +1,138 @@
+:host{
+    justify-self: flex-start;
+    display: block;
+    background-color: rgb(0, 0, 0);
+}
+
+details{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    summary{
+        display: flex;
+        align-items: center;
+        gap: 1em;
+        padding-inline: 2em;
+        padding-block: 0.3em;
+        cursor: pointer;
+
+
+        img{
+            width: 2em;
+            background-color: transparent;
+        }
+    }
+
+
+
+    .vehicle{
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        margin: 0.5em;
+        padding-bottom:0.5em;
+        gap: 1em;
+
+        img{
+            max-width: 80%;
+            border-radius: 6px;
+        }
+        .vehicle__data{
+            display: flex;
+            flex-direction: column;
+            gap: 1em;
+            align-items: center;
+            justify-content: space-around;
+            .vehicle__data__price{
+                width: 100%;
+            }
+        }
+  
+    }
+}
+
+
+.vehicle__data__price{
+    align-self: right;
+    font-size: large;
+    font-weight: 500;
+    text-align: right;
+    margin-top: 1em;
+}
+
+details{
+    max-height: 4.2em;
+    transition: all 350ms ease-in-out;
+    padding: 1em;
+}
+
+details:hover{
+    background-color: rgb(61, 49, 49);
+}
+
+details[open]{
+    background-color: rgb(61, 49, 49);
+    max-height: 100em;
+    color: white;
+    border-bottom: 2px solid white;
+}
+
+@media (min-width:469px) {
+    .vehicle__data{
+        display: grid!important;
+        grid-template-columns: 1fr 1fr;
+        gap: 1em;
+        align-items: center;
+        justify-content: space-around;
+
+        p{
+            width: max-content;
+            max-width: 11em;
+        }
+        .vehicle__data__price{
+            width: 100%;
+        }
+    }
+
+}
+
+
+@media (min-width:769px) {
+    .vehicle{
+        flex-direction: row!important;
+        font-size: larger;
+        justify-content: space-around;
+        img{
+            max-width: 40vw!important;
+            min-width: 30vw;
+        }
+
+        .vehicle__data{
+            display: flex;
+            flex-direction: column;
+            align-items: flex-start!important;
+            text-align: left;
+
+            .vehicle__data__price{
+                align-self: flex-end;
+                font-size: x-large;
+            }
+        }
+
+    }
+}
+
+@media (min-width:1025px) { 
+    .vehicle__data{
+   
+        p{
+            max-width: unset;
+        }
+        .vehicle__data__price{
+            align-self: flex-end;
+            font-size: x-large;
+        }
+    }
+
+
+}

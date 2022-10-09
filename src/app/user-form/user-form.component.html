@@ -1,3 +1,168 @@
 <app-navbar></app-navbar>
-<p>user-form works!</p>
+<form  #userForm="ngForm" (ngSubmit)="onSubmit(name)" class="userForm" >
+    <section>
+        <label for="name">Name:
+            <input class="user-form__name textinput" type="text" name="name" id="name" ngModel required #name="ngModel" minlength="4" maxlength="14" pattern="^[a-zA-Z]+$" autocomplete="off"/>
+        </label>
+        <div class="errors" [hidden]="name.valid || !name.touched">
+            <p [hidden]="!name.errors?.['required']">This field is required</p>
+            <p [hidden]="(!name.errors?.['minlength'] && !name.errors?.['maxlength'])" >Must have between 4 and 14 characters</p>
+            <p [hidden]="!name.errors?.['pattern']">Only alphabetical characters are accepted</p>
+        </div>
+    </section>
+
+    <section>
+        <label for="lastName">Last Name:
+            <input class="user-form__last-name textinput" type="text" name="lastName" id="lastName" ngModel required #lastName="ngModel" minlength="4" maxlength="14" pattern="^[a-zA-Z]+$" autocomplete="off"/>
+        </label>
+        <div class="errors" [hidden]="lastName.valid || !lastName.touched">
+            <p [hidden]="!lastName.errors?.['required']">This field is required</p>
+            <p [hidden]="(!lastName.errors?.['minlength'] && !lastName.errors?.['maxlength'])" >Must have between 4 and 14 characters</p>
+            <p [hidden]="!lastName.errors?.['pattern']">Only alphabetical characters are accepted</p>
+        </div>
+    </section>
+
+    <section>
+        <label for="email">E-mail:
+            <input class="textinput" type="email" name="email" id="email" ngModel required #email="ngModel" email autocomplete="off" maxlength="50"/>
+        </label>
+        <div class="errors" [hidden]="email.valid || !email.touched">
+            <p [hidden]="!email.errors?.['required']">This field is required</p>
+            <p [hidden]="!email.errors?.['email']">Insert a valid email</p>
+        </div>
+    </section>
+
+    <section>
+        <label for="password">Password:
+            <input class="textinput" type="password" name="password" id="password" ngModel required #password="ngModel" minlength="8" pattern="^(?=.*[A-Za-z])(?=.*\d)(?=.*[@$!%*#?&])[A-Za-z\d@$!%*#?&]{1,}$"/>
+        </label>
+        <div class="errors" [hidden]="password.valid || !password.touched">
+            <p [hidden]="!password.errors?.['required']">This field is required</p>
+            <p [hidden]="!password.errors?.['minlength']" >Must have more than 8 characters</p>
+            <p [hidden]="!password.errors?.['pattern']">The password must have at least a number, a letter and a special character</p>
+        </div>
+    </section>
+
+    <section>
+        <label for="confirmPassword">Confirm Password:
+            <input class="textinput" type="password" name="confirmPassword" id="confirmPassword" ngModel required #confirmPassword="ngModel" pattern="{{password.value}}"/>
+        </label>
+        <div class="errors" [hidden]="confirmPassword.valid || !confirmPassword.touched">
+            <p [hidden]="!confirmPassword.errors?.['required']">This field is required</p>
+            <p [hidden]="!confirmPassword.errors?.['pattern']">The passwords must coincide</p>
+        </div>
+    </section>
+
+    <section>
+        <label for="birthDate">Birth Date:
+            <input name="birthDate"  type="date" id="birthDate" ngModel required #birthDate="ngModel" max={{getToday()}}/>
+        </label>
+        <div class="errors" [hidden]="birthDate.valid || !birthDate.touched">
+            <p [hidden]="!birthDate.errors?.['required']">This field is required</p>
+        </div>
+    </section>
+
+    <section>
+        <label for="telephoneNumber">Telephone Number:
+            <input class="textinput" name="telephoneNumber" type="text" id="telephoneNumber" ngModel required #telephoneNumber="ngModel" maxlength=30 minlength="5" pattern="^[0-9]*$" autocomplete="off"/>
+        </label>
+        <div class="errors" [hidden]="telephoneNumber.valid || !telephoneNumber.touched">
+            <p [hidden]="!telephoneNumber.errors?.['required']">This field is required</p>
+            <p [hidden]="(!telephoneNumber.errors?.['minlength'] && !telephoneNumber.errors?.['maxlength'])" >Must have between 5 and 30 numbers</p>
+            <p [hidden]="!telephoneNumber.errors?.['pattern']">Only numbers are allowed</p>
+        </div>
+    </section>
+
+    <section>
+        <label for="personalSiteUrl" >Personal Website:
+            <input class="textinput" name="personalSiteUrl"  type="url" id="personalSiteUrl" ngModel #personalSiteUrl="ngModel" minlength="5" maxlength="50" url pattern="[(http(s)?):\/\/(www\.)?a-zA-Z0-9@:%._\+~#=]{2,256}\.[a-z]{2,6}\b([-a-zA-Z0-9@:%_\+.~#?&//=]*)" autocomplete="off"/>
+        </label>
+        <div class="errors" [hidden]="personalSiteUrl.valid || !personalSiteUrl.touched" >
+            <p [hidden]="(!personalSiteUrl.errors?.['minlength'] && !telephoneNumber.errors?.['maxlength'])" >Must have between 5 and 50 characters</p>
+            <p [hidden]="!personalSiteUrl.errors?.['pattern']">Insert a valid url</p>
+        </div>
+    </section>
+
+    <section class="section__about-me">
+        <label for="aboutMe" class="about-me">About Me:
+            <textarea name="aboutMe"  type="text" id="aboutMe" ngModel #aboutMe maxlength="80"></textarea>
+        </label>
+    </section>
+
+    <section>
+        <label>Gender:
+            <div class="radio-buttons">
+                <label for="genderFemale">Male:<input name="gender"  type="radio" value="female" id="genderFemale" ngModel required #gender="ngModel"/></label>
+                <label for="genderMale">Female:<input name="gender" type="radio" value="male" id="genderMale" ngModel required #gender="ngModel"/></label>
+                <label for="genderOther">Other:<input name="gender" type="radio" value="other" id="genderOther" ngModel required #gender="ngModel"/></label>
+            </div>
+        </label>
+        <div class="errors" [hidden]="gender.valid || !gender.touched">
+            <p [hidden]="!gender.errors?.['required']">Select an option</p>
+        </div>
+    </section>
+
+    <section>
+        <label for="country"  class="user-form__country">Country:
+            <select name="country" ngModel required (ngModelChange)="setCities(userForm.value.country)" #country="ngModel">
+                <option *ngFor="let country of countries" value={{country.code}}>{{country.name}}</option>
+            </select>
+        </label>
+        <div class="errors" [hidden]="country.valid || !country.touched">
+            <p [hidden]="!country.errors?.['required']">Select a country</p>
+        </div>
+    </section>
+
+    <section>
+        <label for="city" class="user-form__city" [ngClass]="{'hidden': cities.length === 0}" >City:
+            <select name="city" ngModel required #city="ngModel">
+                <option *ngFor="let place of cities" value={{place.name}}>{{place.name}}</option>
+            </select>
+        </label>
+        <div class="errors" [hidden]="city.valid || !city.touched || !country.pristine">
+            <p [hidden]="!city.errors?.['required']">Select a city</p>
+        </div>
+    </section>
+
+    <section>
+        <label for="adress" class="user-form__adress" [ngClass]="{'hidden': !city.value}">Adress:
+            <input class="textinput" name="address" type="text" id="adress" ngModel required #adress="ngModel" maxlength="50" autocomplete="off"/>
+        </label>
+        <div class="errors" [hidden]="adress.valid || !adress.touched">
+            <p [hidden]="!adress.errors?.['required']">Select a city</p>
+        </div>
+    </section>
+
+    <section>
+        <label for="agree">Do you agree with our terms and conditions?:
+            <input name="agree"  type="checkbox" id="agree" ngModel required #agree="ngModel"/>
+        </label>
+        <div class="errors" [hidden]="agree.valid || !agree.touched">
+            <p [hidden]="!agree.errors?.['required']">You must agree in order to proceed</p>
+        </div>
+    </section>
+    <input class="user-form__submit" type="submit" value="Accept"  [ngClass]="{'disabled':userForm.status === 'INVALID'}" [disabled]="userForm.status === 'INVALID'" />
+</form>
+
+<div class="modal__container" [ngClass]="{'modal__closed' : !modalOpened}">
+    <div class="modal">
+        <div class="data">
+            <p>Name {{name.value}}</p>
+            <p>Last Name: {{lastName.value}}</p>
+            <p>E-mail: {{email.value}}</p>
+            <p>Password: {{password.value}}</p>
+            <p>Birth Date: {{birthDate.value}}</p>
+            <p>Telephone Number: {{telephoneNumber.value}}</p>
+            <p>Personal Website: {{personalSiteUrl.value}}</p>
+            <p>About Me: {{aboutMe.value}}</p>
+            <p>Gender: {{gender.value}}</p>
+            <p>Country: {{country.value}}</p>
+            <p>City: {{city.value}}</p>
+            <p>Adress: {{adress.value}}</p>
+            <p>Agree?: {{agree.value}}</p> 
+        </div>
+        <button>Accept</button>
+    </div>
+</div>
+
 <app-footer></app-footer>
