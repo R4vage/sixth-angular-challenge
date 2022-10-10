@@ -86,8 +86,7 @@ details[open]{
         justify-content: space-around;
 
         p{
-            width: max-content;
-            max-width: 11em;
+            font-size: medium;
         }
         .vehicle__data__price{
             width: 100%;
@@ -127,6 +126,7 @@ details[open]{
    
         p{
             max-width: unset;
+            font-size: large;
         }
         .vehicle__data__price{
             align-self: flex-end;

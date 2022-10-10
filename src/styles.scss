@@ -20,12 +20,12 @@ body{
 }
 
 
-/* ::-webkit-scrollbar {
-  width: 8px;
+::-webkit-scrollbar {
+  width: 12px;
 }
 
 ::-webkit-scrollbar-track {
-  background: beige;
+  background: rgb(220, 248, 253);
 }
 
 ::-webkit-scrollbar-thumb {
@@ -34,4 +34,4 @@ body{
 
 ::-webkit-scrollbar-thumb:hover {
   background: black;
-} */
+}
