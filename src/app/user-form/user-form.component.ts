@@ -1,7 +1,7 @@
 import { City } from './../models/geo.models';
 import { GeoService } from './geo.service';
-import { Component, OnInit } from '@angular/core';
-import { FormControl, NgForm, NgModel } from '@angular/forms';
+import { Component } from '@angular/core';
+import { FormControl, NgModel } from '@angular/forms';
 import { Country } from '../models/geo.models';
 
 @Component({
@@ -9,16 +9,12 @@ import { Country } from '../models/geo.models';
   templateUrl: './user-form.component.html',
   styleUrls: ['./user-form.component.scss'],
 })
-export class UserFormComponent implements OnInit {
+export class UserFormComponent {
   modalOpened = false;
   countries: Country[];
   cities: City[] = [];
   constructor(private geoService: GeoService) {
     this.countries = geoService.getCountries();
-  }
-
-  ngOnInit(): void {
-    this.geoService.getCountries();
   }
 
   setCities(cityCode: string) {
@@ -32,13 +28,6 @@ export class UserFormComponent implements OnInit {
   onSubmit(variable: NgModel) {
     console.log(variable);
     this.modalOpened = true;
-  }
-
-  validateEqual(c: FormControl, b: FormControl) {
-    if (c.value !== b.value) {
-      return { notEqual: true };
-    }
-    return null;
   }
 
   getToday() {

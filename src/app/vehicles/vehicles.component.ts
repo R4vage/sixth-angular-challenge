@@ -1,6 +1,6 @@
 import { Vehicle } from './../models/vehicle.models';
 import { VehicleProviderService } from './vehicle-provider.service';
-import { Component, OnInit } from '@angular/core';
+import { Component } from '@angular/core';
 
 @Component({
   selector: 'app-vehicles',

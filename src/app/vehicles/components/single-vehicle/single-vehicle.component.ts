@@ -1,12 +1,12 @@
 import { Vehicle } from './../../../models/vehicle.models';
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, Input } from '@angular/core';
 
 @Component({
   selector: 'app-single-vehicle',
   templateUrl: './single-vehicle.component.html',
   styleUrls: ['./single-vehicle.component.scss']
 })
-export class SingleVehicleComponent implements OnInit {
+export class SingleVehicleComponent {
   @Input() vehicle: Vehicle = {
     brand: "",
     releaseYear: 0,
@@ -25,7 +25,5 @@ export class SingleVehicleComponent implements OnInit {
 
   constructor() { }
 
-  ngOnInit(): void {
-  }
 
 }
