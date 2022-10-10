@@ -1,27 +1,11 @@
 # SixthChallenge
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 14.2.3.
+This project was made for the sixth challenge of Applaudo Studio's Trainee Program.
 
-## Development server
+It's an angular project, divided in two main sectiosn;
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The application will automatically reload if you change any of the source files.
+    The vehicles section, which provides a series of dropdowns, with diferent vehicles inside of them.
 
-## Code scaffolding
+    The form section, which consists of a form, with validation, which upon proper submission prints its values to the console, and displays them in a modal for the user to see.
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
-
-## Build
-
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory.
-
-## Running unit tests
-
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
-
-## Running end-to-end tests
-
-Run `ng e2e` to execute the end-to-end tests via a platform of your choice. To use this command, you need to first add a package that implements end-to-end testing capabilities.
-
-## Further help
-
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.io/cli) page.
+Also, the project has a simple footer, and a navbar with primitive routing capabilities.

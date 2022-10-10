@@ -147,7 +147,7 @@
 <div class="modal__container" [ngClass]="{'modal__closed' : !modalOpened}">
     <div class="modal">
         <div class="data">
-            <p>Name {{name.value}}</p>
+            <p>Name: {{name.value}}</p>
             <p>Last Name: {{lastName.value}}</p>
             <p>E-mail: {{email.value}}</p>
             <p>Password: {{password.value}}</p>
@@ -161,7 +161,7 @@
             <p>Adress: {{adress.value}}</p>
             <p>Agree?: {{agree.value}}</p> 
         </div>
-        <button>Accept</button>
+        <button (click)="closeModal()">Accept</button>
     </div>
 </div>
 

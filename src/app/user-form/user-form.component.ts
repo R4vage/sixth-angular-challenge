@@ -44,4 +44,8 @@ export class UserFormComponent implements OnInit {
   getToday() {
     return new Date().toISOString().split('T')[0];
   }
+
+  closeModal(){
+    this.modalOpened = false
+  }
 }
