@@ -49,7 +49,7 @@ export class VehicleProviderService {
       'Mustang Shelby GT-500',
       '5.4 32v',
       '2125kg',
-      1250000,
+      125000,
       'ford.png',
       'ford-mustang.jpg',
       '1992 cm3',
